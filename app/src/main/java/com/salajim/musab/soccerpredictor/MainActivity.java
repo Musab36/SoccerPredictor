@@ -12,7 +12,8 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     public static final String TAG = MainActivity.class.getSimpleName();
-    @Bind(R.id.totalGames) EditText mTotalGames;
+    @Bind(R.id.totalHomeGames) EditText mTotalHomeGames;
+    @Bind(R.id.totalAwayGames) EditText mTotalAwayGames;
     @Bind({R.id.homeWins}) EditText mHomeWins;
     @Bind(R.id.awayLoses) EditText mAwayLoses;
     @Bind(R.id.homeDraws) EditText mHomeDraws;
@@ -41,7 +42,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void getPrediction() {
-        int totalGames = Integer.parseInt(mTotalGames.getText().toString());
+        // Getting user input
+        int totalHomeGames = Integer.parseInt(mTotalHomeGames.getText().toString());
+        int totalAwayGames = Integer.parseInt(mTotalAwayGames.getText().toString());
         int homeWins = Integer.parseInt(mHomeWins.getText().toString());
         int awayLoses = Integer.parseInt(mAwayLoses.getText().toString());
         int homeDraws = Integer.parseInt(mHomeDraws.getText().toString());
@@ -49,16 +52,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int awayHomeWins = Integer.parseInt(mAwayHomeWins.getText().toString());
         int homeAwayLoses = Integer.parseInt(mHomeAwayLoses.getText().toString());
 
-        int homeWin = homeWins + awayLoses / totalGames * 100;
-        int draw = homeDraws + awayDraws / totalGames * 100;
-        int awayWin = awayHomeWins + homeAwayLoses / totalGames * 100;
+        // Calculating odds and probabilities
+        double totalGames = totalHomeGames + totalAwayGames;
+        double homeWin = homeWins + awayLoses;
+        double homeOdds = homeWin / totalGames;
+        double homeProb = homeOdds * 100;
+        double draw = homeDraws + awayDraws;
+        double drawOdds = draw / totalGames;
+        double drawProb = drawOdds * 100;
+        double awayWin = awayHomeWins + homeAwayLoses;
+        double awayOdds = awayWin / totalGames;
+        double awayProb = awayOdds * 100;
         int prediction;
 
-        // Probabilities
-
-        mHomeProb.setText(Integer.toString(homeWin) + "%");
-        mDrawProb.setText(Integer.toString(draw) + "%");
-        mAwayProb.setText(Integer.toString(awayWin) + "%");
+        // Setting Probabilities to TextViews
+        mHomeProb.setText(Double.toString(homeProb) + "%");
+        mDrawProb.setText(Double.toString(drawProb) + "%");
+        mAwayProb.setText(Double.toString(awayProb) + "%");
 
     }
 }

@@ -14,13 +14,25 @@
         android:layout_height="match_parent">
 
         <EditText
-            android:id="@+id/totalGames"
+            android:id="@+id/totalHomeGames"
             android:layout_width="170dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            android:layout_marginLeft="120dp"
+            android:layout_marginLeft="15dp"
             android:background="@android:color/white"
-            android:hint="Total games played"
+            android:hint="Home T Total games"
+            android:inputType="number"
+            android:textColor="@android:color/background_dark" />
+
+        <EditText
+            android:id="@+id/totalAwayGames"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@+id/totalHomeGames"
+            android:background="@android:color/white"
+            android:hint="Away T Total games"
             android:inputType="number"
             android:textColor="@android:color/background_dark" />
 
@@ -30,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:layout_marginLeft="10dp"
-            android:layout_below="@+id/totalGames"
+            android:layout_below="@+id/totalHomeGames"
             android:background="@android:color/white"
             android:hint="Home T home wins"
             android:inputType="number"
@@ -42,7 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:layout_marginLeft="15dp"
-            android:layout_below="@+id/totalGames"
+            android:layout_below="@+id/totalHomeGames"
             android:layout_toRightOf="@+id/homeWins"
             android:background="@android:color/white"
             android:hint="Away T away loses"
