@@ -34,5 +34,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void getPrediction() {
+        int totalGames = Integer.parseInt(mTotalGames.getText().toString());
+        int homeWins = Integer.parseInt(mHomeWins.getText().toString());
+        int awayLoses = Integer.parseInt(mAwayLoses.getText().toString());
+        int draws = Integer.parseInt(mDraws.getText().toString());
+        int awayHomeWins = Integer.parseInt(mAwayHomeWins.getText().toString());
+        int homeAwayLoses = Integer.parseInt(mHomeAwayLoses.getText().toString());
+        int homeWin = homeWins + awayLoses / totalGames;
+        int draw = draws / totalGames;
+        int awayWin = awayHomeWins + homeAwayLoses / totalGames;
     }
 }

@@ -21,6 +21,7 @@
             android:layout_marginLeft="120dp"
             android:background="@android:color/white"
             android:hint="Total games played"
+            android:inputType="number"
             android:textColor="@android:color/background_dark" />
 
         <EditText
@@ -32,6 +33,7 @@
             android:layout_below="@+id/totalGames"
             android:background="@android:color/white"
             android:hint="Home T home wins"
+            android:inputType="number"
             android:textColor="@android:color/background_dark" />
 
         <EditText
@@ -44,6 +46,7 @@
             android:layout_toRightOf="@+id/homeWins"
             android:background="@android:color/white"
             android:hint="Away T away loses"
+            android:inputType="number"
             android:textColor="@android:color/background_dark" />
 
         <EditText
@@ -55,6 +58,7 @@
             android:layout_below="@+id/homeWins"
             android:background="@android:color/white"
             android:hint="Total draws"
+            android:inputType="number"
             android:textColor="@android:color/background_dark" />
 
         <EditText
@@ -66,6 +70,7 @@
             android:layout_below="@+id/draws"
             android:background="@android:color/white"
             android:hint="Away T home wins"
+            android:inputType="number"
             android:textColor="@android:color/background_dark" />
 
         <EditText
@@ -78,6 +83,7 @@
             android:layout_below="@+id/draws"
             android:background="@android:color/white"
             android:hint="Home T away loses"
+            android:inputType="number"
             android:textColor="@android:color/background_dark" />
 
         <Button
