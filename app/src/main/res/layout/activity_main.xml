@@ -50,14 +50,27 @@
             android:textColor="@android:color/background_dark" />
 
         <EditText
-            android:id="@+id/draws"
+            android:id="@+id/homeDraws"
             android:layout_width="170dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:layout_marginLeft="120dp"
+            android:layout_marginLeft="15dp"
             android:layout_below="@+id/homeWins"
             android:background="@android:color/white"
-            android:hint="Total draws"
+            android:hint="Total home T draws"
+            android:inputType="number"
+            android:textColor="@android:color/background_dark" />
+
+        <EditText
+            android:id="@+id/awayDraws"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="15dp"
+            android:layout_below="@+id/homeWins"
+            android:layout_toRightOf="@+id/homeDraws"
+            android:background="@android:color/white"
+            android:hint="Total away T draws"
             android:inputType="number"
             android:textColor="@android:color/background_dark" />
 
@@ -67,7 +80,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:layout_marginLeft="10dp"
-            android:layout_below="@+id/draws"
+            android:layout_below="@+id/homeDraws"
             android:background="@android:color/white"
             android:hint="Away T home wins"
             android:inputType="number"
@@ -80,7 +93,7 @@
             android:layout_marginTop="30dp"
             android:layout_marginLeft="15dp"
             android:layout_toRightOf="@+id/awayHomeWins"
-            android:layout_below="@+id/draws"
+            android:layout_below="@+id/homeDraws"
             android:background="@android:color/white"
             android:hint="Home T away loses"
             android:inputType="number"

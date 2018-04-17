@@ -15,7 +15,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Bind(R.id.totalGames) EditText mTotalGames;
     @Bind({R.id.homeWins}) EditText mHomeWins;
     @Bind(R.id.awayLoses) EditText mAwayLoses;
-    @Bind(R.id.draws) EditText mDraws;
+    @Bind(R.id.homeDraws) EditText mHomeDraws;
+    @Bind(R.id.awayDraws) EditText mAwayDraws;
     @Bind(R.id.awayHomeWins) EditText mAwayHomeWins;
     @Bind(R.id.homeAwayLoses) EditText mHomeAwayLoses;
     @Bind(R.id.submitBtn) Button mSubmitBtn;
@@ -43,12 +44,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int totalGames = Integer.parseInt(mTotalGames.getText().toString());
         int homeWins = Integer.parseInt(mHomeWins.getText().toString());
         int awayLoses = Integer.parseInt(mAwayLoses.getText().toString());
-        int draws = Integer.parseInt(mDraws.getText().toString());
+        int homeDraws = Integer.parseInt(mHomeDraws.getText().toString());
+        int awayDraws = Integer.parseInt(mAwayDraws.getText().toString());
         int awayHomeWins = Integer.parseInt(mAwayHomeWins.getText().toString());
         int homeAwayLoses = Integer.parseInt(mHomeAwayLoses.getText().toString());
 
         int homeWin = homeWins + awayLoses / totalGames * 100;
-        int draw = draws / totalGames * 100;
+        int draw = homeDraws + awayDraws / totalGames * 100;
         int awayWin = awayHomeWins + homeAwayLoses / totalGames * 100;
         int prediction;
 
