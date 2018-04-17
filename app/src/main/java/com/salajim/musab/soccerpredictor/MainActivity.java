@@ -70,5 +70,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mDrawProb.setText(Double.toString(drawProb) + "%");
         mAwayProb.setText(Double.toString(awayProb) + "%");
 
+        // Setting EditTexts to empty
+        mTotalHomeGames.setText("");
+        mTotalAwayGames.setText("");
+        mHomeWins.setText("");
+        mAwayLoses.setText("");
+        mHomeDraws.setText("");
+        mAwayDraws.setText("");
+        mAwayHomeWins.setText("");
+        mHomeAwayLoses.setText("");
     }
 }
