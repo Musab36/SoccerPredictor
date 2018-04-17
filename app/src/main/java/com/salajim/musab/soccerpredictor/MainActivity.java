@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -18,6 +19,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Bind(R.id.awayHomeWins) EditText mAwayHomeWins;
     @Bind(R.id.homeAwayLoses) EditText mHomeAwayLoses;
     @Bind(R.id.submitBtn) Button mSubmitBtn;
+    @Bind(R.id.homeProb) TextView mHomeProb;
+    @Bind(R.id.drawProb) TextView mDrawProb;
+    @Bind(R.id.awayProb) TextView mAwayProb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +34,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        getPrediction();
+       if(v == mSubmitBtn) {
+           getPrediction();
+       }
     }
 
     private void getPrediction() {
@@ -40,8 +46,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int draws = Integer.parseInt(mDraws.getText().toString());
         int awayHomeWins = Integer.parseInt(mAwayHomeWins.getText().toString());
         int homeAwayLoses = Integer.parseInt(mHomeAwayLoses.getText().toString());
-        int homeWin = homeWins + awayLoses / totalGames;
-        int draw = draws / totalGames;
-        int awayWin = awayHomeWins + homeAwayLoses / totalGames;
+
+        int homeWin = homeWins + awayLoses / totalGames * 100;
+        int draw = draws / totalGames * 100;
+        int awayWin = awayHomeWins + homeAwayLoses / totalGames * 100;
+        int prediction;
+
+        // Probabilities
+
+        mHomeProb.setText(Integer.toString(homeWin) + "%");
+        mDrawProb.setText(Integer.toString(draw) + "%");
+        mAwayProb.setText(Integer.toString(awayWin) + "%");
+
     }
 }

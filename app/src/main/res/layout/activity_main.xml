@@ -17,7 +17,7 @@
             android:id="@+id/totalGames"
             android:layout_width="170dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="40dp"
             android:layout_marginLeft="120dp"
             android:background="@android:color/white"
             android:hint="Total games played"
@@ -98,6 +98,101 @@
             android:textColor="@android:color/white"
             android:textSize="18sp"
             android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/probabilities"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/submitBtn"
+            android:layout_marginTop="20dp"
+            android:text="PROBABILITIES:"
+            android:layout_centerHorizontal="true"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/probabilities"
+            android:layout_marginTop="10dp"
+            android:text="Home:"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/homeProb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/probabilities"
+            android:layout_toRightOf="@+id/home"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/draw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/home"
+            android:layout_marginTop="10dp"
+            android:text="Draw:"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/drawProb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/homeProb"
+            android:layout_toRightOf="@+id/draw"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/away"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/draw"
+            android:layout_marginTop="10dp"
+            android:text="Away:"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/awayProb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/drawProb"
+            android:layout_toRightOf="@+id/away"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+        <!--
+        <TextView
+            android:id="@+id/predictionTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/predction"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:text="Home Team"
+            android:textColor="@android:color/white"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+            -->
+
 
     </RelativeLayout>
 </LinearLayout>
