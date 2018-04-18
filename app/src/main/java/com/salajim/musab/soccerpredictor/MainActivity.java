@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int awayHomeWins = Integer.parseInt(mAwayHomeWins.getText().toString());
         int homeAwayLoses = Integer.parseInt(mHomeAwayLoses.getText().toString());
 
-        // Calculating odds and probabilities
+        // Calculating the odds and the probabilities
         double totalGames = totalHomeGames + totalAwayGames;
         double homeWin = homeWins + awayLoses;
         double homeOdds = homeWin / totalGames;
@@ -63,12 +63,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         double awayWin = awayHomeWins + homeAwayLoses;
         double awayOdds = awayWin / totalGames;
         double awayProb = awayOdds * 100;
+
+        // Rounding off the doubles to two decimals places
+        double hRoundOff = Math.round(homeProb * 100.0)/100.0;
+        double dRoundOff = Math.round(drawProb * 100.0)/100.0;
+        double aRoundOff = Math.round(awayProb * 100.0)/100.0;
         int prediction;
 
         // Setting Probabilities to TextViews
-        mHomeProb.setText(Double.toString(homeProb) + "%");
-        mDrawProb.setText(Double.toString(drawProb) + "%");
-        mAwayProb.setText(Double.toString(awayProb) + "%");
+        mHomeProb.setText(Double.toString(hRoundOff) + "%");
+        mDrawProb.setText(Double.toString(dRoundOff) + "%");
+        mAwayProb.setText(Double.toString(aRoundOff) + "%");
 
         // Setting EditTexts to empty
         mTotalHomeGames.setText("");
