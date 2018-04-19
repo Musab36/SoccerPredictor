@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Bind(R.id.drawProb) TextView mDrawProb;
     @Bind(R.id.awayProb) TextView mAwayProb;
     @Bind(R.id.predictionTextView) TextView mPrediction;
+    @Bind(R.id.dcTextView) TextView mDc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,6 +94,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             mPrediction.setText("X");
         } else {
             mPrediction.setText("2");
+        }
+
+        // Double chance prediction
+        if(hRoundOff > dRoundOff && (dRoundOff > aRoundOff)) {
+            mDc.setText("1X");
+        } else if(hRoundOff > aRoundOff && (aRoundOff > dRoundOff)) {
+            mDc.setText("12");
+        } else if(aRoundOff > dRoundOff && (dRoundOff > hRoundOff)){
+            mDc.setText("X2");
+        } else if(hRoundOff == dRoundOff && (aRoundOff > hRoundOff)) {
+            mDc.setText("X2");
+        } else if(aRoundOff == dRoundOff && (hRoundOff > aRoundOff)) {
+            mDc.setText("1X");
+        } else if(hRoundOff == aRoundOff && (dRoundOff > hRoundOff) && (dRoundOff > aRoundOff)) {
+            mDc.setText("1X");
+        } else if(hRoundOff == aRoundOff && (dRoundOff < hRoundOff) && (dRoundOff < aRoundOff)) {
+            mDc.setText("12");
+        } else {
+            mDc.setText("1X");
         }
     }
 }
