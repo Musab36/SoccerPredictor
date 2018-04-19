@@ -87,11 +87,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mHomeAwayLoses.setText("");
 
         // Prediction
-        if(hRoundOff < dRoundOff) {
-            mPrediction.setText("X");
-        } else if(hRoundOff > aRoundOff) {
+        if(hRoundOff > dRoundOff && (hRoundOff > aRoundOff)) {
             mPrediction.setText("1");
-        } else if(aRoundOff > dRoundOff){
+        } else if(dRoundOff > hRoundOff && (dRoundOff > aRoundOff)) {
+            mPrediction.setText("X");
+        } else {
             mPrediction.setText("2");
         }
     }
