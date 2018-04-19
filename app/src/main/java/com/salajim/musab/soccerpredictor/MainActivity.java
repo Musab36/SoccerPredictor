@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Bind(R.id.awayProb) TextView mAwayProb;
     @Bind(R.id.predictionTextView) TextView mPrediction;
     @Bind(R.id.dcTextView) TextView mDc;
+    @Bind(R.id.clearBtn) Button mClearBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,12 +35,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ButterKnife.bind(this);
 
         mSubmitBtn.setOnClickListener(this);
+        mClearBtn.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
        if(v == mSubmitBtn) {
            getPrediction();
+       }
+       if(v == mClearBtn) {
+           // Setting EditTexts to empty
+           mTotalHomeGames.setText("");
+           mTotalAwayGames.setText("");
+           mHomeWins.setText("");
+           mAwayLoses.setText("");
+           mHomeDraws.setText("");
+           mAwayDraws.setText("");
+           mAwayHomeWins.setText("");
+           mHomeAwayLoses.setText("");
+           mHomeProb.setText("");
+           mDrawProb.setText("");
+           mAwayProb.setText("");
+           mPrediction.setText("");
+           mDc.setText("");
        }
     }
 
@@ -77,16 +95,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mDrawProb.setText(Double.toString(dRoundOff) + "%");
         mAwayProb.setText(Double.toString(aRoundOff) + "%");
 
-        // Setting EditTexts to empty
-        mTotalHomeGames.setText("");
-        mTotalAwayGames.setText("");
-        mHomeWins.setText("");
-        mAwayLoses.setText("");
-        mHomeDraws.setText("");
-        mAwayDraws.setText("");
-        mAwayHomeWins.setText("");
-        mHomeAwayLoses.setText("");
-
         // Prediction
         if(hRoundOff > dRoundOff && (hRoundOff > aRoundOff)) {
             mPrediction.setText("1");
@@ -99,7 +107,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Double chance prediction
         if(hRoundOff > dRoundOff && (dRoundOff > aRoundOff)) {
             mDc.setText("1X");
-        } else if(hRoundOff > aRoundOff && (aRoundOff > dRoundOff)) {
+        } else if(hRoundOff > dRoundOff && (aRoundOff > dRoundOff)) {
             mDc.setText("12");
         } else if(aRoundOff > dRoundOff && (dRoundOff > hRoundOff)){
             mDc.setText("X2");
