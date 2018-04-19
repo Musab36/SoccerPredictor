@@ -119,6 +119,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             mDc.setText("1X");
         } else if(hRoundOff == aRoundOff && (dRoundOff < hRoundOff) && (dRoundOff < aRoundOff)) {
             mDc.setText("12");
+        } else if(aRoundOff == dRoundOff && (aRoundOff > hRoundOff)){
+            mDc.setText("X2");
         } else {
             mDc.setText("1X");
         }
