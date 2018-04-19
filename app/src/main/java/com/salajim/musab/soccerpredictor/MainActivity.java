@@ -100,6 +100,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             mPrediction.setText("1");
         } else if(dRoundOff > hRoundOff && (dRoundOff > aRoundOff)) {
             mPrediction.setText("X");
+        } else if(hRoundOff == dRoundOff && (hRoundOff == aRoundOff) && (dRoundOff == aRoundOff)){
+            mPrediction.setText("1");
         } else {
             mPrediction.setText("2");
         }
