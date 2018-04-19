@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Bind(R.id.homeProb) TextView mHomeProb;
     @Bind(R.id.drawProb) TextView mDrawProb;
     @Bind(R.id.awayProb) TextView mAwayProb;
+    @Bind(R.id.predictionTextView) TextView mPrediction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,5 +85,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mAwayDraws.setText("");
         mAwayHomeWins.setText("");
         mHomeAwayLoses.setText("");
+
+        // Prediction
+        if(hRoundOff < dRoundOff) {
+            mPrediction.setText("X");
+        } else if(hRoundOff > aRoundOff) {
+            mPrediction.setText("1");
+        } else if(aRoundOff > dRoundOff){
+            mPrediction.setText("2");
+        }
     }
 }
