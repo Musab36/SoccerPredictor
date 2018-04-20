@@ -72,59 +72,65 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int awayHomeWins = Integer.parseInt(mAwayHomeWins.getText().toString());
         int homeAwayLoses = Integer.parseInt(mHomeAwayLoses.getText().toString());
 
-        // Calculating the odds and the probabilities
-        double totalGames = totalHomeGames + totalAwayGames;
-        double homeWin = homeWins + awayLoses;
-        double homeOdds = homeWin / totalGames;
-        double homeProb = homeOdds * 100;
-        double draw = homeDraws + awayDraws;
-        double drawOdds = draw / totalGames;
-        double drawProb = drawOdds * 100;
-        double awayWin = awayHomeWins + homeAwayLoses;
-        double awayOdds = awayWin / totalGames;
-        double awayProb = awayOdds * 100;
+            // Calculating the odds and the probabilities
+            double totalGames = totalHomeGames + totalAwayGames;
+            double homeWin = homeWins + awayLoses;
+            double homeOdds = homeWin / totalGames;
+            double homeProb = homeOdds * 100;
+            double draw = homeDraws + awayDraws;
+            double drawOdds = draw / totalGames;
+            double drawProb = drawOdds * 100;
+            double awayWin = awayHomeWins + homeAwayLoses;
+            double awayOdds = awayWin / totalGames;
+            double awayProb = awayOdds * 100;
 
-        // Rounding off the doubles to two decimals places
-        double hRoundOff = Math.round(homeProb * 100.0)/100.0;
-        double dRoundOff = Math.round(drawProb * 100.0)/100.0;
-        double aRoundOff = Math.round(awayProb * 100.0)/100.0;
-        int prediction;
+            // Rounding off the doubles to two decimals places
+            double hRoundOff = Math.round(homeProb * 100.0)/100.0;
+            double dRoundOff = Math.round(drawProb * 100.0)/100.0;
+            double aRoundOff = Math.round(awayProb * 100.0)/100.0;
+            int prediction;
 
-        // Setting Probabilities to TextViews
-        mHomeProb.setText(Double.toString(hRoundOff) + "%");
-        mDrawProb.setText(Double.toString(dRoundOff) + "%");
-        mAwayProb.setText(Double.toString(aRoundOff) + "%");
+            // Setting Probabilities to TextViews
+            mHomeProb.setText(Double.toString(hRoundOff) + "%");
+            mDrawProb.setText(Double.toString(dRoundOff) + "%");
+            mAwayProb.setText(Double.toString(aRoundOff) + "%");
 
-        // Prediction
-        if(hRoundOff > dRoundOff && (hRoundOff > aRoundOff)) {
-            mPrediction.setText("1");
-        } else if(dRoundOff > hRoundOff && (dRoundOff > aRoundOff)) {
-            mPrediction.setText("X");
-        } else if(hRoundOff == dRoundOff && (hRoundOff == aRoundOff) && (dRoundOff == aRoundOff)){
-            mPrediction.setText("1");
-        } else {
-            mPrediction.setText("2");
+            // Prediction
+            if(hRoundOff > dRoundOff && (hRoundOff > aRoundOff)) {
+                mPrediction.setText("1");
+            } else if(dRoundOff > hRoundOff && (dRoundOff > aRoundOff)) {
+                mPrediction.setText("X");
+            } else if(hRoundOff == dRoundOff && (hRoundOff == aRoundOff) && (dRoundOff == aRoundOff)){
+                mPrediction.setText("1");
+            } else {
+                mPrediction.setText("2");
+            }
+
+            // Double chance prediction
+            if(hRoundOff > dRoundOff && (dRoundOff > aRoundOff)) {
+                mDc.setText("1X");
+            } else if(hRoundOff > dRoundOff && (aRoundOff > dRoundOff)) {
+                mDc.setText("12");
+            } else if(aRoundOff > dRoundOff && (dRoundOff > hRoundOff)){
+                mDc.setText("X2");
+            } else if(hRoundOff == dRoundOff && (aRoundOff > hRoundOff)) {
+                mDc.setText("X2");
+            } else if(aRoundOff == dRoundOff && (hRoundOff > aRoundOff)) {
+                mDc.setText("1X");
+            } else if(hRoundOff == aRoundOff && (dRoundOff > hRoundOff) && (dRoundOff > aRoundOff)) {
+                mDc.setText("1X");
+            } else if(hRoundOff == aRoundOff && (dRoundOff < hRoundOff) && (dRoundOff < aRoundOff)) {
+                mDc.setText("12");
+            } else if(aRoundOff == dRoundOff && (aRoundOff > hRoundOff)){
+                mDc.setText("X2");
+            } else if (aRoundOff < dRoundOff && (aRoundOff > hRoundOff)){
+                mDc.setText("X2");
+            } else if (hRoundOff < dRoundOff && (hRoundOff > aRoundOff)){
+                mDc.setText("1X");
+            } else {
+                mDc.setText("1X");
+            }
+
         }
 
-        // Double chance prediction
-        if(hRoundOff > dRoundOff && (dRoundOff > aRoundOff)) {
-            mDc.setText("1X");
-        } else if(hRoundOff > dRoundOff && (aRoundOff > dRoundOff)) {
-            mDc.setText("12");
-        } else if(aRoundOff > dRoundOff && (dRoundOff > hRoundOff)){
-            mDc.setText("X2");
-        } else if(hRoundOff == dRoundOff && (aRoundOff > hRoundOff)) {
-            mDc.setText("X2");
-        } else if(aRoundOff == dRoundOff && (hRoundOff > aRoundOff)) {
-            mDc.setText("1X");
-        } else if(hRoundOff == aRoundOff && (dRoundOff > hRoundOff) && (dRoundOff > aRoundOff)) {
-            mDc.setText("1X");
-        } else if(hRoundOff == aRoundOff && (dRoundOff < hRoundOff) && (dRoundOff < aRoundOff)) {
-            mDc.setText("12");
-        } else if(aRoundOff == dRoundOff && (aRoundOff > hRoundOff)){
-            mDc.setText("X2");
-        } else {
-            mDc.setText("1X");
-        }
     }
-}

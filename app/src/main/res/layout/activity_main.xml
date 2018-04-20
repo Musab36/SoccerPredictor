@@ -87,27 +87,27 @@
             android:textColor="@android:color/background_dark" />
 
         <EditText
-            android:id="@+id/awayHomeWins"
+            android:id="@+id/homeAwayLoses"
             android:layout_width="170dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:layout_marginLeft="5dp"
             android:layout_below="@+id/homeDraws"
             android:background="@android:color/white"
-            android:hint="Away T home wins"
+            android:hint="Home T away loses"
             android:inputType="number"
             android:textColor="@android:color/background_dark" />
 
         <EditText
-            android:id="@+id/homeAwayLoses"
+            android:id="@+id/awayHomeWins"
             android:layout_width="170dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@+id/awayHomeWins"
+            android:layout_toRightOf="@+id/homeAwayLoses"
             android:layout_below="@+id/homeDraws"
             android:background="@android:color/white"
-            android:hint="Home T away loses"
+            android:hint="Away T home wins"
             android:inputType="number"
             android:textColor="@android:color/background_dark" />
 
